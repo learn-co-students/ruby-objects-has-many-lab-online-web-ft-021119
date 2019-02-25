@@ -1,3 +1,4 @@
+
 require 'pry'
 
 class Post
@@ -13,7 +14,7 @@ class Post
 
   def new(title)
     post = Post.new(title)
-    @posts<< post
+    @all << post
   end
 
   def self.all
@@ -21,12 +22,7 @@ class Post
   end
 
   def author_name
-    self.author
+    self.author = @author.name
   end
-
-
-
-
-
 
 end
