@@ -14,7 +14,7 @@ class Post
 
   def new(title)
     post = Post.new(title)
-    @all << post
+    @@all << @post
   end
 
   def self.all
@@ -22,7 +22,7 @@ class Post
   end
 
   def author_name
-    self.author = @author.name
+    self.author ? self.author.name : nil
   end
 
 end

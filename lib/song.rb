@@ -6,12 +6,19 @@ class Song
   def initialize(name)
     @name = name
     @artist = artist
-    @genre = genre
   end
 
-  def new_song(song)
+  def new(song)
     Song.new = song
     @@all<< song
+  end
+
+  def name
+    @name = self.name
+  end
+
+  def artist_name
+    self.artist ? self.artist.name : nil
   end
 
   def self.all
