@@ -6,6 +6,7 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
+    @@all << self
   end
 
   def songs
@@ -24,8 +25,11 @@ class Artist
   end
 
   def self.song_count       #How can we get access to total number of songs from the artist class or the total number of posts from the author class?
-    binding.pry
-    @@all.length
+    song_count = []
+    @@all.collect do |artist|
+      song_count << artist.songs
+    end
+    song_count.flatten.length
     # Expected to return 2
   end
 
