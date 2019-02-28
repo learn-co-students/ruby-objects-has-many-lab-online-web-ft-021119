@@ -1,13 +1,11 @@
 require 'pry'
 class Artist
   attr_accessor :name
-
-  @@total #will be an integer found at the end!
+  @@all = []
 
   def initialize(name)
     @name = name
     @songs = []
-
   end
 
   def songs
@@ -15,11 +13,8 @@ class Artist
   end
 
   def add_song(song)
-    #let's us add a given song to the repetoire of an artist
-    @songs << song
-    #reciprocates relationship between artist and song...
-    #says "this song's artist(property of Song obj) is this specific Artist (obj)"
-    song.artist = self
+    @songs << song        #let's us add a given song to the repetoire of an artist
+    song.artist = self    #reciprocates relationship between artist and song, says "this song's artist(property of Song obj) is this specific Artist (obj)"
   end
 
   def add_song_by_name(name)
@@ -28,10 +23,9 @@ class Artist
     rollin.artist = self    #let song 'know' that it belongs to artist
   end
 
-  def self.song_count #How can we get access to total number of songs from the artist class or the total number of posts from the author class?
-    @songs
-    # binding.pry
-    @@total
+  def self.song_count       #How can we get access to total number of songs from the artist class or the total number of posts from the author class?
+    binding.pry
+    @@all.length
     # Expected to return 2
   end
 
